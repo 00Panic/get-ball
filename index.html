@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balls</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #ddd;
+        }
+        .dark-mode .tablinks button {
+            background-color: #555;
+            color: #ddd;
+        }
+        .dark-mode .tablinks button:hover {
+            background-color: #666;
+        }
+        .dark-mode .tablinks button.active {
+            background-color: #777;
+        }
+        .dark-mode .tabcontent {
+            background-color: #444;
+            border-color: #555;
+        }
+        .settings {
+            margin-top: 20px;
+        }
+        .balls-info {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Game')">Game</button>
+  <button class="tablinks" onclick="openTab(event, 'Shop')">Shop</button>
+  <button class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
+</div>
+
+<div id="Game" class="tabcontent">
+  <p id="Balls">0 Balls</p>
+  <button onclick="getBalls()">Get Balls</button>
+</div>
+
+<div id="Shop" class="tabcontent">
+  <div id="store"></div>
+</div>
+
+<div id="Settings" class="tabcontent">
+  <div class="settings">
+    <label>
+      <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()"> Dark Mode
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" id="audioToggle" onclick="toggleAudio()"> Mute Audio
+    </label>
+  </div>
+</div>
+
+<div class="balls-info" id="BallsPerSecond">+0 Balls/s</div>
+
+<script src="main.js" charset="utf-8" type="text/javascript"></script>
+
+<script>
+    // Open the Game tab by default
+    document.querySelector('.tablinks').click();
+</script>
+
+</body>
+</html>
